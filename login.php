@@ -4,16 +4,16 @@ session_start();
 include('inc/header.php');
 $loginError = '';
 if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
-	include 'Inventory.php';
-	$inventory = new Inventory();
-	$login = $inventory->login($_POST['email'], $_POST['pwd']);
-	if (!empty($login)) {
-		$_SESSION['userid'] = $login[0]['userid'];
-		$_SESSION['name'] = $login[0]['name'];
-		header("Location:index.php");
-	} else {
-		$loginError = "Invalid email or password!";
-	}
+    include 'Inventory.php';
+    $inventory = new Inventory();
+    $login = $inventory->login($_POST['email'], $_POST['pwd']);
+    if (!empty($login)) {
+        $_SESSION['userid'] = $login[0]['userid'];
+        $_SESSION['name'] = $login[0]['name'];
+        header("Location:index.php");
+    } else {
+        $loginError = "Invalid email or password!";
+    }
 }
 ?>
 <style>
